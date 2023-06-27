@@ -17,13 +17,11 @@ import { getSender } from '../utils/logics'
 import { setActiveChat } from '../redux/chatsSlice'
 import Group from '../components/Group'
 import Contacts from '../components/Contacts'
-import { Effect } from "react-notification-badge"
 // import NotificationBadge from 'react-notification-badge/lib/components/NotificationBadge';
-import NotificationBadge from 'react-notification-badge';
 import Search from '../components/group/Search'
 function Home() {
   const dispatch = useDispatch()
-  const { showProfile, showNotifications } = useSelector((state) => state.profile)
+  const { showProfile,  } = useSelector((state) => state.profile)
   const { notifications } = useSelector((state) => state.chats)
   const { activeUser } = useSelector((state) => state)
   const [searchResults, setSearchResults] = useState([])
@@ -83,7 +81,7 @@ function Home() {
                     </a>
                   </div>
                   <div className='absolute top-4 right-5 flex items-center gap-x-3'>
-                    <button onClick={() => dispatch(setShowNotifications(!showNotifications))}>
+                    {/* <button onClick={() => dispatch(setShowNotifications(!showNotifications))}>
                       <NotificationBadge
                         count={notifications.length}
                         effect={Effect.SCALE}
@@ -93,8 +91,8 @@ function Home() {
                         showNotifications ? <RiNotificationBadgeFill style={{ width: "25px", height: "25px", color: "#6F40FF" }} /> : <BiNotification style={{ color: "#6F40FF", width: "25px", height: "25px" }} />
                       }
 
-                    </button>
-                    <div className={`${showNotifications ? "overflow-y-scroll scrollbar-hide tracking-wide absolute top-10 -left-32 z-10 w-[240px] bg-[#fafafa] px-4 py-2 shadow-2xl" : "hidden"}`}>
+                    </button> */}
+                    {/* <div className={`${showNotifications ? "overflow-y-scroll scrollbar-hide tracking-wide absolute top-10 -left-32 z-10 w-[240px] bg-[#fafafa] px-4 py-2 shadow-2xl" : "hidden"}`}>
                       <div className='text-[13px]'>
 
                         {!notifications.length && "No new messages"}
@@ -115,7 +113,7 @@ function Home() {
 
                         })
                       }
-                    </div>
+                    </div> */}
                     <button onClick={() => dispatch(setShowProfile(true))} className='flex items-center gap-x-1 relative'>
                       <img className='w-[28px] h-[28px] rounded-[25px]' src={activeUser?.profilePic} alt="" />
                       <IoIosArrowDown style={{ color: "#616c76", height: "14px", width: "14px" }} />
